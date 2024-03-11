@@ -1,8 +1,7 @@
 # Description
-This is a small python class for reconstructing and reading information from the SLUG object buffers contained in Arepo snapshots, by interfacing with the SLUG C++ code
+This is a small python class for reconstructing and reading information from the SLUG object buffers contained in [Arepo](https://gitlab.mpcdf.mpg.de/vrs/arepo) snapshots, by interfacing with the [SLUG](https://slug2.readthedocs.io/en/latest/compiling.html) C++ code.
 
-## Note
-Not tested, and no error outputs yet, sorry!
+Note that this is specifically for use with the `slug_fb` branch of the Arepo repository, with the `SLUG_FB_OUTPUT` compile flag. With this flag, SLUG objects are attached to each star particle (cluster) in the output, providing a stochastically-synthesized stellar population associated with each star cluster.
 
 # Usage
 ## Compiling
@@ -19,7 +18,7 @@ g++ -std=c++11 -shared -Wl,-soname=libslug_object.so -o libslug_object.so slug_o
 ## Running the python script
 Choose a snapshot that has star particles with slug objects attached (Arepo output) and run
 ```
-python2.7 read_slug.py "PATH_TO_SNAPSHOT/snap_x.hdf5"
+python read_slug.py "PATH_TO_SNAPSHOT/snap_x.hdf5"
 ```
 and the script will output a dictionary of the form
 ```
